@@ -1,8 +1,12 @@
+const button = document.getElementById('changeNameButton')
+
 function getFirstName() {
-    let firstName = prompt('Enter your firstname')
-    alert(`Hello, ${firstName}! How are you?`)
-    const button = document.getElementById('changeNameButton')
+    let firstName = window.prompt('Enter your firstname')
+    window.alert(`Hello, ${firstName}! How are you?`)
     button.innerText = `Hey! I'm not ${firstName}! Change first name!`
 }
 
-getFirstName()
+setTimeout(() => {
+    button.addEventListener('click', getFirstName)
+    getFirstName()
+})
