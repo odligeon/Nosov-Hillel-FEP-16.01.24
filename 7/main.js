@@ -4,26 +4,29 @@
 //
 // alert((num1 + num2 + num3) / 3)
 
-let numbers = []
-let number
 
-if (number === undefined) {
-    while (number !== '' || number !== null) {
-        number = prompt('Enter number')
-        if (number === '' || number === null) break
-        numbers.push(+number)
+setTimeout(() => {
+    let numbers = []
+    let number
+
+    if (number === undefined) {
+        while (number !== '' || number !== null) {
+            number = prompt('Enter number')
+            if (number === '' || number === null) break
+            numbers.push(+number)
+        }
     }
-}
 
-let amount = numbers.length
-let sum = 0
+    let amount = numbers.length
+    let sum = 0
 
-function count() {
-    for (let i = 0; i < numbers.length; i++) {
-        sum = sum + numbers[i]
+    function count() {
+        for (let i = 0; i < numbers.length; i++) {
+            sum = sum + numbers[i]
+        }
+        return sum
     }
-    return sum
-}
 
-count()
-alert(sum)
+    count()
+    alert(sum)
+})
