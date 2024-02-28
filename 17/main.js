@@ -1,4 +1,4 @@
-let array = [[5, 12, 'string', true,[10]], 1, 2, 3, '2', 4, false]
+let array = [[5, 12, 'string', true,[10]], 1, 2, 3, '2', 4, false, 10.5]
 let sum = 0
 function recursion(arr) {
     return arr.map((item) => {
