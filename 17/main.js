@@ -7,5 +7,5 @@ function recursion(arr) {
     })
 }
 
-// console.log(recursion(array))
+console.log(recursion(array))
 console.log(sum)
