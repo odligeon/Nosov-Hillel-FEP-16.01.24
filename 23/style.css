@@ -1,0 +1,21 @@
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+[data-hidden] {
+    padding: 4px 8px;
+    border: 2px solid slategray;
+    border-radius: 2px;
+    position: absolute;
+    right: -150px;
+    transition: all 0.2s ease-in-out;
+}
+
+[data-hidden].show {
+    transform: translateX(-160px);
+}
