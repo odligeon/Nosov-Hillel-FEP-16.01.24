@@ -42,7 +42,7 @@ function checkButtons() {
 }
 
 getImages()
-setTimeout(drawImages, 100) //если уменьшить, то не успевает отработать все имеджи
+setTimeout(drawImages, 1000) //если уменьшить, то не успевает отработать все имеджи
 
 btnRight.addEventListener('click', function () {
     document.getElementById(nextPos).scrollIntoView()
