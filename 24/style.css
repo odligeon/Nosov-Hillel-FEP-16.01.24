@@ -1,0 +1,51 @@
+body {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    scroll-behavior: smooth;
+}
+
+.wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+.slider__wrapper {
+    width: 640px;
+    overflow: hidden;
+    display: flex;
+    scroll-behavior: smooth;
+    position: relative;
+}
+
+.buttons {
+    display: flex;
+    align-items: center;
+    width: 640px;
+    position: absolute;
+    height: -webkit-fill-available;
+}
+
+button {
+    position: absolute;
+    padding: 4px 10px;
+    border-radius: 5px;
+}
+
+button#left {
+    left: 10px;
+}
+
+button#right {
+    right: 10px;
+}
+
+.slider {
+    display: flex;
+}
+
+img {
+    object-fit: cover;
+}
