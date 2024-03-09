@@ -7,20 +7,13 @@ let currPos = 1
 let nextPos = currPos + 1
 let prevPos = currPos - 1
 
-async function getImages() {
-    try {
-        let test = new Image()
-        test.src = `images/${i}.jpg`
-        test.id = i;
-        let response = await fetch(test.src)
-        if (response.ok === false) throw 'all images parsed'
-        images.push(test)
-        i++
-    } catch (error) {
-        console.log(error)
-        return;
+function getImages(amount) {
+    for (; i <= amount; i++) {
+        let img = new Image()
+        img.src = `images/${i}.jpg`
+        img.id = i;
+        images.push(img)
     }
-    getImages()
 }
 
 function drawImages() {
@@ -31,7 +24,9 @@ function drawImages() {
 }
 
 function checkButtons() {
-    // console.log(prevPos, currPos, nextPos, images.length + 1)
+    nextPos = currPos + 1
+    prevPos = currPos - 1
+
     if (prevPos === 0) {
         btnLeft.hidden = true;
     } else btnLeft.hidden = false;
@@ -41,20 +36,16 @@ function checkButtons() {
     } else btnRight.hidden = false
 }
 
-getImages()
-setTimeout(drawImages, 1000) //если уменьшить, то не успевает отработать все имеджи
+getImages(5)//указываем макс количество картинок для слайдера
+drawImages()
 
 btnRight.addEventListener('click', function () {
     document.getElementById(nextPos).scrollIntoView()
     currPos += 1
-    nextPos = currPos + 1
-    prevPos = currPos - 1
     checkButtons()
 })
 btnLeft.addEventListener('click', function () {
     document.getElementById(prevPos).scrollIntoView()
     currPos -= 1
-    nextPos = currPos + 1
-    prevPos = currPos - 1
     checkButtons()
 })
