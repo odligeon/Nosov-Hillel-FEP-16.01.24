@@ -1,0 +1,28 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+label {
+    display: block;
+}
+
+#form {
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 10px;
+    background: aliceblue;
+}
+
+#table {
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 10px;
+    background: aliceblue;
+    display: none;
+}
+
+tr:not(:last-child) td {
+    border-bottom: 1px solid black;
+}

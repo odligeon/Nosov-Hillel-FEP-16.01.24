@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="main.js" defer></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<form action="" id="form">
+    <label for="firstName">Your Name:</label>
+    <input type="text" id="firstName" name="firstName" class="input" required>
+    <label for="lastName">Your Last Name:</label>
+    <input type="text" id="lastName" name="lastName" class="input" required>
+    <label for="bDay">Your Birthday:</label>
+    <input type="date" name="bDay" id="bDay" class="input" required>
+
+    <label id="sex">Sex:
+        <label for="male">male</label>
+        <input type="radio" id="male" name="sex" class="input" value="male">
+        <label for="female">female</label>
+        <input type="radio" id="female" name="sex" class="input" value="female">
+    </label>
+
+
+    <label for="city">City:</label>
+    <select id="city" name="city" class="input">
+        <option value="Odessa">Odessa</option>
+        <option value="Kiev">Kiev</option>
+        <option value="Kharkov">Kharkov</option>
+        <option value="Krim">Krim :D</option>
+    </select>
+
+    <label for="address">Enter your home address:</label>
+    <textarea name="address" rows="3" cols="30" id="address" class="input" required></textarea>
+
+    <p id="languages">Choose your languages:</p>
+    <label>
+        <input type="checkbox" name="languages" value="RU" class="input">
+        Russian
+    </label>
+    <br>
+    <label>
+        <input type="checkbox" name="languages" value="UA" class="input">
+        Ukrainian
+    </label>
+    <br>
+    <label>
+        <input type="checkbox" name="languages" value="EN" class="input">
+        Englando
+    </label>
+
+    <button type="submit">Save</button>
+</form>
+<table id="table"></table>
+</body>
+</html>
