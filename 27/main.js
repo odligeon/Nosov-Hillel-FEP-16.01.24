@@ -57,8 +57,7 @@ const table = document.querySelector('#table')
 //         })
 //     }
 //
-//     function drawTable() {
-//         let data = arguments[0]
+//     function drawTable(data) {
 //         for (let [key, value] of Object.entries(data)) {
 //             let tr = document.createElement('tr')
 //             let td = document.createElement('td')
@@ -76,22 +75,25 @@ form.addEventListener('submit', (event) => {
     let data = new FormData(form);
     let submittable = true
 
-    try {
-        if (document.getElementById('sexError')) {
-            document.getElementById('sexError').remove()
-        }
-        document.querySelector('#sex .input:checked').value
-        submittable = true
-    } catch (error) {
+    if (document.getElementById('sexError')) {
+        document.getElementById('sexError').remove()
+    }
+
+    if (!document.querySelector('#sex .input:checked')) {
         let p = document.createElement('p')
         p.innerText = 'Please choose your sex'
         p.style.color = 'red'
         p.id = 'sexError'
         document.querySelector('#sex').prepend(p)
         submittable = false
+    } else {
+        submittable = true
     }
 
     let languagesList = ''
+    if (document.getElementById('languageError')) {
+        document.getElementById('languageError').remove()
+    }
     if (data.getAll('languages').length === 0) {
         let p = document.createElement('p')
         p.innerText = 'Please choose your languages'
@@ -103,10 +105,6 @@ form.addEventListener('submit', (event) => {
         data.getAll('languages').forEach((item) => {
             return languagesList += `${item} `
         })
-        if (document.getElementById('languageError')) {
-            document.getElementById('languageError').remove()
-        }
-
     }
 
     if (submittable) {
@@ -122,8 +120,7 @@ form.addEventListener('submit', (event) => {
         })
     }
 
-    function drawTable() {
-        let data = arguments[0]
+    function drawTable(data) {
         for (let [key, value] of Object.entries(data)) {
             let tr = document.createElement('tr')
             let td = document.createElement('td')
