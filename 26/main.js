@@ -1,66 +1,63 @@
 import {showAll, showItemsByType} from "./js/products.js";
 
+export const products = document.querySelector('.products')
+export const productDesc = document.querySelector('.product__desc')
+
+let div, h3, img, span
+
+function createElement() {
+    div = document.createElement('div')
+    h3 = document.createElement('h3')
+    img = document.createElement('img')
+    span = document.createElement('span')
+}
 
 export function drawCard(item) {
-    const div = document.createElement('div')
-    const h3 = document.createElement('h3')
-    const img = document.createElement('img')
-    const span = document.createElement('span')
-
+    createElement()
     div.classList.add('product__card')
     h3.innerText = item.name
-    h3.style.cssText = 'display: block; margin: 1rem 0; padding: 0 1rem'
-    img.style.cssText = 'display: block; margin: 1rem 0'
-    span.style.cssText = 'display: block; margin: 1rem 0; padding: 0 1rem'
+    h3.classList.add('db', 'm-1-0', 'p-0-1')
+    img.classList.add('db', 'm-1-0')
+    span.classList.add('db', 'm-1-0', 'p-0-1')
     img.src = item.image
     span.innerText = `Price: ${item.price}$`
 
+    div.append(h3, img, span)
 
-    div.append(h3)
-    div.append(img)
-    div.append(span)
-
-    document.querySelector('.products').append(div) //добавили карточку
+    products.append(div) //добавили карточку
 
     div.addEventListener('click', () => {
         drawDescription(item) //рисуем правый блок
-        document.querySelector('.products').classList.add('hide') //прячем центральный
-        document.querySelector('.product__desc').classList.remove('hide')
+        products.classList.add('hide') //прячем центральный
+        productDesc.classList.remove('hide')
     })
 }
 
 function drawDescription(item) {
-    document.querySelector('.product__desc').innerHTML = ''
-    const divDesc = document.createElement('div')
-    const h3Desc = document.createElement('h3')
-    const imgDesc = document.createElement('img')
-    const spanDesc = document.createElement('span')
-    const spanDescLongDesc = document.createElement('span')
+    productDesc.innerHTML = ''
+    createElement()
+    const spanLongDesc = document.createElement('span')
     const btnBuy = document.createElement('button')
 
-    divDesc.classList.add('product__card')
-    h3Desc.innerText = item.name
-    h3Desc.style.cssText = 'display: block; margin: 1rem 0; padding: 0 1rem'
-    imgDesc.style.cssText = 'display: block; margin: 1rem 0'
-    spanDesc.style.cssText = 'display: block; margin: 1rem 0; padding: 0 1rem'
-    spanDescLongDesc.style.cssText = 'display: block; margin: 1rem 0; padding: 0 1rem'
-    btnBuy.style.cssText = 'display: block; margin: 1rem 0 1rem 1rem'
+    div.classList.add('product__card')
+    h3.innerText = item.name
+    h3.classList.add('db', 'm-1-0', 'p-0-1')
+    img.classList.add('db', 'm-1-0')
+    span.classList.add('db', 'm-1-0', 'p-0-1')
+    spanLongDesc.classList.add('db', 'm-1-0', 'p-0-1')
+    btnBuy.classList.add('btnBuy')
     btnBuy.id = 'myBtn'
-    imgDesc.src = item.image
-    spanDesc.innerText = `Price: ${item.price}$`
-    spanDescLongDesc.innerText = item.description
+    img.src = item.image
+    span.innerText = `Price: ${item.price}$`
+    spanLongDesc.innerText = item.description
     btnBuy.innerText = 'BUY this product'
 
-    divDesc.append(h3Desc)
-    divDesc.append(imgDesc)
-    divDesc.append(spanDesc)
-    divDesc.append(spanDescLongDesc)
-    divDesc.append(btnBuy)
+    div.append(h3, img, span, spanLongDesc, btnBuy)
 
-    document.querySelector('.product__desc').append(divDesc)
+    productDesc.append(div)
     btnBuy.addEventListener('click', () => {
-        document.querySelector('.products').classList.remove('hide')
-        document.querySelector('.product__desc').classList.add('hide')
+        products.classList.remove('hide')
+        productDesc.classList.add('hide')
     })
     modal(item)
 }
@@ -87,14 +84,14 @@ function modal(product) {
     Вас перенаправили на главную
     Спасибо за покупку!`
 
-    btn.onclick = function() {
+    btn.onclick = function () {
         modal.style.display = "block";
     }
 
-    span.onclick = function() {
+    span.onclick = function () {
         modal.style.display = "none";
     }
-    window.onclick = function(event) {
+    window.onclick = function (event) {
         if (event.target === modal) {
             modal.style.display = "none";
         }
